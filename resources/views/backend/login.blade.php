@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +35,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="login-logo">
-                                <img alt="Gujarat Police Logo" class="rounded" src="{{ url('backend/images/logo/GP2.png') }}" style="height: 60%;width: 60%;">
+                                <img alt="Gujarat Police Logo" class="rounded"
+                                    src="{{ url('backend/images/logo/GP2.png') }}" style="height: 60%;width: 60%;">
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -43,34 +45,39 @@
                             </div>
                         </div>
                     </div>
-                    <form action="{{route('admin.login')}}" method="POST">
+                    <form action="{{ route('admin.login') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>User Name</label>
-                            <input type="text" name="adminname" class="form-control" placeholder="User Name" required>
+                            <input type="text" name="adminname" class="form-control" placeholder="User Name"
+                                value="{{ isset($user_name) ? $user_name : '' }}" required>
                             @if ($errors->has('adminname'))
-                             <span class="text-danger">The User Name field is required.</span>
+                                <span class="text-danger">The User Name field is required.</span>
                             @endif
 
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" name="adminpassword" class="form-control" placeholder="Password" required>
+                            <input type="password" name="adminpassword" class="form-control" placeholder="Password"
+                                required>
                             @if ($errors->has('adminpassword'))
                                 <span class="text-danger">The Password field is required.</span>
                             @endif
                         </div>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Login</button>
                     </form>
+                    <div style="margin-top:5px;">
+                        <span class="text-danger">{{ isset($message) ? $message : '' }}</span>
+                        <div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <script src="{{url('backend/assets/js/vendor/jquery-2.1.4.min.js')}}"></script>
-    <script src="{{url('backend/assets/js/popper.min.js')}}"></script>
-    <script src="{{url('backend/assets/js/plugins.js')}}"></script>
-    <script src="{{url('backend/assets/js/main.js')}}"></script>
+            <script src="{{ url('backend/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
+            <script src="{{ url('backend/assets/js/popper.min.js') }}"></script>
+            <script src="{{ url('backend/assets/js/plugins.js') }}"></script>
+            <script src="{{ url('backend/assets/js/main.js') }}"></script>
 
 </body>
 
