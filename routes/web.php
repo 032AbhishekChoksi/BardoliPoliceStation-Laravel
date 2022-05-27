@@ -17,8 +17,12 @@ Route::group(['prefix' => 'admin','middleware'=>'backendguard'],function(){
     Route::get('/logout','App\Http\Controllers\backend\DashboardController@logout')->name('admin.logout');
 });
 
+Route::get('admin','App\Http\Controllers\backend\LoginController@index');
 Route::get('admin/login','App\Http\Controllers\backend\LoginController@index')->name('admin.login');
 Route::post('admin/login','App\Http\Controllers\backend\LoginController@login')->name('admin.login');
+Route::get('admin/create','App\Http\Controllers\backend\LoginController@store');
+
+//Route::get('helpline','App\Http\Controllers\backend\HelplineController@index');
 
 // Route::prefix('/admin')->group(function () {
 //     Route::get('/dashboard','App\Http\Controllers\backend\DashboardController@index')->name('admin.dashboard');
