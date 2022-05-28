@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="{{ url('backend/assets/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ url('backend/assets/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ url('backend/assets/css/cs-skin-elastic.css') }}">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+
+    <link rel="stylesheet" href="{{ url('backend/assets/css/lib/datatable/dataTables.bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('backend/assets/scss/style.css') }}">
-    <link href="{{ url('backend/assets/css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
 
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
@@ -46,8 +46,15 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="{{ route('admin.dashboard') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                    <li class="menu-item-has-children dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i
+                                class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                                <ul class="sub-menu children dropdown-menu">
+                                    <li><i class="fa fa-headphones"></i><a href="{{ route('admin.dashboard') }}">Helpline</a></li>
+                                    <li><i class="fa fa-newspaper-o"></i><a href="{{ route('admin.dashboard') }}">News</a></li>
+                                    <li><i class="fa fa-user"></i><a href="{{ route('admin.dashboard') }}">Commissioner</a></li>
+                                </ul>
                     </li>
                     <li>
                         <a href=""><i class="menu-icon fa fa-image"></i>Gallery</a>
@@ -66,6 +73,14 @@
                     </li>
                     <li>
                         <a href=""><i class="menu-icon fa fa-book"></i>F.I.R Details</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"> <i
+                                class="menu-icon fa fa-trash"></i>Trash</a>
+                                <ul class="sub-menu children dropdown-menu">
+                                    <li><i class="fa fa-headphones"></i><a href="{{ route('admin.helpline.trash') }}">Helpline</a></li>
+                                </ul>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -162,7 +177,7 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                                <i class="user-avatar rounded-circle fa fa-user-circle" style='font-size:30px;'></i>
+                            <i class="user-avatar rounded-circle fa fa-user-circle" style='font-size:30px;'></i>
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -173,7 +188,8 @@
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                            <a class="nav-link" href="{{route('admin.logout')}}"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="{{ route('admin.logout') }}"><i
+                                    class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
